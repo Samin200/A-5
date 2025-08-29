@@ -34,7 +34,7 @@ for(let i=0  ; i < buttons.length ; i++){
         }
         else{
             coin -= 20
-            alert(name + ' ' + number)
+            alert("Calling "+name + ' ' + number)
             callHistory.append(history)
             
         }
