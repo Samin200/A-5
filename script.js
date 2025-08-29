@@ -1,11 +1,10 @@
 let coinBar = document.getElementById('coin-bar')
 let coin = 100
+coinBar.textContent = coin
 const buttons = document.getElementsByClassName('call-btn')
 for(let i=0  ; i < buttons.length ; i++){
     buttons[i].addEventListener(
-    'click' , function(){
-            coin -= 20  
-            coinBar.textContent = coin
+        'click' , function(){
             const name = this.parentElement.parentElement.parentElement.children[0].children[1].textContent
             const number = this.parentElement.parentElement.parentElement.children[1].children[0].textContent
             
@@ -28,18 +27,23 @@ for(let i=0  ; i < buttons.length ; i++){
             div4.innerText = currentTime
             div2.innerText = name
             div3.innerText = number
-        if(coin < 20){
+            
+        if( coin < 20 ){
+            
             alert("Cancel Call")
-            coin +=20
         }
         else{
-            
+            coin -= 20
             alert(name + ' ' + number)
             callHistory.append(history)
+            
         }
         document.getElementById('clear-btn').addEventListener("click", function(){
             history.classList.add("hidden")
+            
         })
+        return coinBar.textContent = coin
+        
     }
 )
 }
